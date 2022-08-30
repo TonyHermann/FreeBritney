@@ -51,16 +51,18 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
         >
           <p>X</p>
         </div>
-        <div className="retoContent">
-          <div className="reto" id={randReto.id} key={randReto.id}>
-            <div className="header">
-              <p>Reto #{randReto.id}</p>
-            </div>
-            <div className="body">
-              <p>Avanzas un casillero si...</p>
-              {loaded ? (
+        {loaded ? (
+          <div className="retoContent">
+            <div className="reto" id={randReto.id} key={randReto.id}>
+              <div className="header">
+                <p>Reto #{randReto.id}</p>
+              </div>
+              <div className="body">
+                <p>Avanzas un casillero si...</p>
                 <div className="content">
-                  <div className="reto_texto"><p>{randReto.contenido}</p></div>
+                  <div className="reto_texto">
+                    <p>{randReto.contenido}</p>
+                  </div>
                   {randReto.rta ? (
                     <div className="rta">
                       <p>{randReto.rta}</p>
@@ -69,15 +71,15 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
                     ""
                   )}
                 </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="finishButton">
-              <p>Completado!</p>
+              </div>
+              <div className="finishButton">
+                <p>Completado!</p>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
       </Modal>
     </>
   );
