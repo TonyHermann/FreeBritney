@@ -1,0 +1,93 @@
+.overlay {
+    width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(51, 51, 51, 0.481);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    z-index: 99;
+}
+
+.modal {
+    height: 95%;
+    width: 90%;
+	background: #fff;
+	position: relative;
+	border-radius: $modalBorderRadius;
+	box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;
+	// padding: 2.0vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+ 
+    .modal_header {
+        padding: 2vh;
+        span {
+            font-size: 3vh;
+        }
+    }
+    .modal_body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            position: relative;
+            label {
+                font-size: 2vh;
+            }
+            input {
+                border: 0.1vh solid #4F4F4F;
+                border-radius: 1vh;
+                height: 4.5vh;
+                padding-left: 2vh;
+                padding-right: 2vh;
+                transition: all 0.5s;
+                &.placeholder {
+                    color: #BDBDBD;
+                }
+                &:invalid:focus {
+                    background-color: #ff8080;
+                    color: white;
+                    border: 0.1vh solid #f21010;
+                    transition: all 0.5s;
+                    outline: none;
+                }
+                &:required:valid {
+                    background-color: white;
+                    color: black;
+                }
+            }
+          
+        }
+    }
+}
+
+.info {
+    background-color: $infobgc;
+}
+
+.closeButton {
+    background-color: $closebuttonbgc;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;   
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 20px;
+    margin-top: 20px;
+    color: white;
+}
+

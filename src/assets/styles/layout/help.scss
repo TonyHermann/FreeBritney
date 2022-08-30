@@ -1,0 +1,38 @@
+.helpButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    background-color: $french-violet;
+    color: white;
+    width: 40px;
+    height: 40px;
+}
+
+.help_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .content {
+        padding: 2vh;
+        // overflow-y: scroll;
+        h2, p {
+            width: 90%;
+        }
+    }
+    .footer { 
+        background-color: white;
+        color: black;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 10px 0 10px 0;
+        border-bottom-left-radius:$modalBorderRadius;
+        border-bottom-right-radius: $modalBorderRadius;
+    }
+}
+

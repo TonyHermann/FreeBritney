@@ -1,0 +1,23 @@
+.buttonContainer {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .fbButton {
+ 
+        cursor: pointer;
+        height: 200px;
+        width: 200px;
+        border-radius: 150px;
+        background-color: $fbButtonbgc;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.6), inset 0px 4px 8px rgba(255, 255, 255, 0.75);
+        
+        h1 {
+            font-size: 35px;
+        }
+    }
+}
