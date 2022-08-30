@@ -2,9 +2,9 @@ import React, { FunctionComponent } from "react";
 
 interface ModalProps {
   estadoModal: any;
-  children: React.ReactNode;
-  type: string;
-  header: boolean;
+  children: any;
+  type?: string;
+  header?: boolean;
   headerContent?: string;
   info?: boolean;
 }
