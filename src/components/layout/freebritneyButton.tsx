@@ -14,6 +14,11 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
   let [completedList, setCompletedList] = useState<reto[]>();
   const [finish, setFinish] = useState<boolean>(false);
 
+  const audioList = ["boys no se q cosa", "Do you feel me now", "dont stop now just be the champion", "don't u know i still believe", "Give me a sign", "hit me baby one more time", "I can't wait", "I still believe still believe", "I Think i did it again", "I'm addicted to you dont u know that ur toxic", "Im not that innocent", "Ima slave", "Intoxicate me now", "lollipop", "My lonliness is killing me", "now they dont believe ya but they gonna need ya", "oh baby baby", "oops 1", "oops2", "show me how u wanna to be", "There's no scape", "Too high can't come down", "u say im crazy i got u crazy", "U wanna hot", "u wanta  bugatti", "With the taste of your lips im on a ride", "womanizer 1", "work it out", "work work work", "you better work bitch", "you got me go in", "you wanna live fancy", "You wanna", "you want a lamborghini", "You want a maseratti"];
+  let [audioName, setAudioName] = useState<string>("");
+  let audio = new Audio(`../audio/${audioName}.mp3`);
+
+
   useEffect(() => {
     initApp();
     getRetos();
@@ -39,6 +44,8 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
       cambiarEstadoModal2(true);
       setLoaded(false);
     }
+    setAudioName(audioList[getRandomNumber(audioList)]);
+    audio.play();
   
   };
 
@@ -48,11 +55,11 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
   };
 
   let getRandomReto = () => {
-    let rand = getRandomNumber();
+    let rand = getRandomNumber(retos);
     console.log(completedList?.length);
     console.log(retos.length);
     do {
-      rand = getRandomNumber();
+      rand = getRandomNumber(retos);
       if (retos.length == completedList?.length) {
         break;
       }
@@ -66,8 +73,8 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
 
   };
 
-  let getRandomNumber = (): number => {
-    let rand = Math.floor(Math.random() * retos.length);
+  let getRandomNumber = (array:Array<any>): number => {
+    let rand = Math.floor(Math.random() * array.length);
     return rand;
   };
 
