@@ -31,9 +31,7 @@ const HelpButton: FunctionComponent<HelpButtonProps> = () => {
             <h2>Bienvenido a #FreeBritney</h2>
             <h3>¿Cómo jugar?</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum minima nihil reprehenderit aspernatur
-              dolore, enim quod illum perferendis veritatis saepe eligendi pariatur, nulla reiciendis optio distinctio
-              inventore, doloremque aperiam ipsa.
+            Jugando solo o en equipo, elegí si querés ser #TeamBritney o #TeamSpears en la batalla legal por la tutela de la cantante. Por turnos, cada equipo va a apretar el botón #FreeBritney para darle un desafío al equipo contrario. Si  los desafíos de la B-Army son cumplidos el equipo puede avanzar de casillero para así estar más cerca de ganar el juicio legal. La habitación de Britney y el gran escenario cuentan como dos casilleros. 
             </p>
           </div>
           <div className="footer">
