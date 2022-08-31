@@ -15,9 +15,17 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
   const [finish, setFinish] = useState<boolean>(false);
 
   useEffect(() => {
+    initApp();
     getRetos();
     getCompleted();
+  
   }, []);
+
+  let initApp = () => {
+    if(!localStorage.getItem("completedList")) {
+      localStorage.setItem("completedList", JSON.stringify([{'id': '0'}]));
+    }
+  }
 
 
   let handleClick = () => {
