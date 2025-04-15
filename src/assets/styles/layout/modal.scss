@@ -1,3 +1,5 @@
+@use "../base/variables";
+
 .overlay {
     width: 100vw;
 	height: 100vh;
@@ -16,7 +18,7 @@
     width: 90%;
 	background: #fff;
 	position: relative;
-	border-radius: $modalBorderRadius;
+	border-radius: variables.$modalBorderRadius;
 	box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;
 	// padding: 2.0vh;
     display: flex;
@@ -72,11 +74,11 @@
 }
 
 .info {
-    background-color: $infobgc;
+    background-color: variables.$infobgc;
 }
 
 .closeButton {
-    background-color: $closebuttonbgc;
+    background-color: variables.$closebuttonbgc;
     width: 30px;
     height: 30px;
     display: flex;

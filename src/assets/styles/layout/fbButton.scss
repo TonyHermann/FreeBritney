@@ -1,3 +1,5 @@
+@use "../base/variables";
+
 .buttonContainer {
     height: 90vh;
     display: flex;
@@ -9,7 +11,7 @@
         height: 200px;
         width: 200px;
         border-radius: 150px;
-        background-color: $fbButtonbgc;
+        background-color: variables.$fbButtonbgc;
         color: white;
         display: flex;
         justify-content: center;

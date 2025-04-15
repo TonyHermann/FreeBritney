@@ -1,3 +1,5 @@
+@use "../base/variables";
+
 .helpButton {
     display: flex;
     flex-direction: column;
@@ -6,7 +8,7 @@
     position: absolute;
     right: 0;
     margin-right: 20px;
-    background-color: $french-violet;
+    background-color: variables.$french-violet;
     color: white;
     width: 40px;
     height: 40px;
@@ -31,8 +33,8 @@
         display: flex;
         justify-content: center;
         padding: 10px 0 10px 0;
-        border-bottom-left-radius:$modalBorderRadius;
-        border-bottom-right-radius: $modalBorderRadius;
+        border-bottom-left-radius:variables.$modalBorderRadius;
+        border-bottom-right-radius: variables.$modalBorderRadius;
     }
 }
 

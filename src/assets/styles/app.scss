@@ -1,9 +1,9 @@
-@import 'base/variables';
-@import 'base/normalize';
-@import 'base/mixins';
-@import 'base/globals';
+@use 'base/variables';
+@use 'base/normalize';
+@use 'base/mixins';
+@use 'base/globals';
 
-@import 'layout/modal';
-@import 'layout/help';
-@import 'layout/fbButton';
-@import 'layout/reto';
+@use 'layout/modal';
+@use 'layout/help';
+@use 'layout/fbButton';
+@use 'layout/reto';
