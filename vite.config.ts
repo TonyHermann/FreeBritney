@@ -11,5 +11,5 @@ export default defineConfig({
     }
   },
   plugins: [react()],
-  base: '/FreeBritney/'
+  base: '/FreeBritney/dist/'
 })
