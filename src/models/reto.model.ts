@@ -1,4 +1,5 @@
 export interface reto {
-    id: number;
+    id: string;
     contenido: string;
+    rta?: string;
 }

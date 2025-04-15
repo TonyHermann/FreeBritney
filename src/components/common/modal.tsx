@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 
 interface ModalProps {
-  estadoModal: any;
-  children: any;
+  estadoModal: boolean;
+  children: ReactNode;
   type?: string;
   header?: boolean;
   headerContent?: string;

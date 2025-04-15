@@ -7,17 +7,14 @@ interface FreeBritneyButtonProps {}
 
 const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
   const [retos, setRetos] = useState<reto[]>([]);
-  const [randReto, setRandReto] = useState<any>();
+  const [randReto, setRandReto] = useState<reto>();
+  let [completedList, setCompletedList] = useState<reto[]>([]);
   const [estadoModal, cambiarEstadoModal] = useState<boolean>(false);
   const [estadoModal2, cambiarEstadoModal2] = useState<boolean>(false);
   const [loaded, setLoaded] = useState<boolean>(false);
-  let [completedList, setCompletedList] = useState<reto[]>();
-  const [finish, setFinish] = useState<boolean>(false);
 
-  // const audioList = ["boys no se q cosa", "Do you feel me now", "dont stop now just be the champion", "don't u know i still believe", "Give me a sign", "hit me baby one more time", "I can't wait", "I still believe still believe", "I Think i did it again", "I'm addicted to you dont u know that ur toxic", "Im not that innocent", "Ima slave", "Intoxicate me now", "lollipop", "My lonliness is killing me", "now they dont believe ya but they gonna need ya", "oh baby baby", "oops 1", "oops2", "show me how u wanna to be", "There's no scape", "Too high can't come down", "u say im crazy i got u crazy", "U wanna hot", "u wanta  bugatti", "With the taste of your lips im on a ride", "womanizer 1", "work it out", "work work work", "you better work bitch", "you got me go in", "you wanna live fancy", "You wanna", "you want a lamborghini", "You want a maseratti"];
   let [audioName, setAudioName] = useState<number>(1);
   let audio = new Audio(`./audio/${audioName}.mp3`);
-
 
   useEffect(() => {
     initApp();
@@ -32,15 +29,14 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
     }
   }
 
-
   let handleClick = () => {
     let randReto = getRandomReto();
-    if(randReto) {
+    if(typeof randReto != 'boolean') {
       setRandReto(randReto);
       cambiarEstadoModal(true);
       setLoaded(true);
     } else {
-      setFinish(true);
+      // setFinish(true);
       cambiarEstadoModal2(true);
       setLoaded(false);
     }
@@ -54,10 +50,8 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
     setRetos(retos);
   };
 
-  let getRandomReto = () => {
+  let getRandomReto = (): reto | boolean => {
     let rand = getRandomNumberFromArray(retos);
-    console.log(completedList?.length);
-    console.log(retos.length);
     do {
       rand = getRandomNumberFromArray(retos);
       if (retos.length == completedList?.length) {
@@ -73,7 +67,7 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
 
   };
 
-  let getRandomNumberFromArray = (array: Array<any>): number => {
+  let getRandomNumberFromArray = (array: Array<reto>): number => {
     let rand = Math.floor(Math.random() * array.length);
     return rand;
   };
@@ -85,23 +79,22 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
 
   let handleComplete = () => {
     cambiarEstadoModal(!estadoModal);
-    console.log(completedList);
-    setNewRetoCompleted(randReto);
-    console.log(typeof completedList);
+    if(randReto != undefined) {
+      setNewRetoCompleted(randReto);
+    }
   };
 
   let setNewRetoCompleted = (reto: reto) => {
-    completedList?.push(reto);
+    setCompletedList((prev) => [...(prev || []), reto]);
     localStorage.setItem("completedList", JSON.stringify(completedList));
   };
 
   let getCompleted = () => {
     let x = localStorage.getItem("completedList");
-    setCompletedList(JSON.parse(x || '{}'));
+    setCompletedList(JSON.parse(x || '[]'));
   };
 
   let handleReset = () => {
-    console.log('initializing');
     localStorage.setItem("completedList", JSON.stringify([{}]));
     location.reload();
   }
@@ -117,7 +110,7 @@ const FreeBritneyButton: FunctionComponent<FreeBritneyButtonProps> = () => {
         <h1>#FreeBritney</h1>
       </div>
       <Modal estadoModal={estadoModal}>
-        {loaded ? (
+        {(loaded && typeof randReto != 'undefined') ? (
           <div className="retoContent">
             <div className="reto" id={randReto.id} key={randReto.id}>
               <div className="header">
